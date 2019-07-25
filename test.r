@@ -1,0 +1,11 @@
+#v1<-1:5
+#v2<-c(3,6,1,2,9)
+#v3<-seq(from=1, to=5, by=1)
+#v4<-c(0,0,0,0,0)
+#v5<-seq(from=0, to=0, length.out = 5)
+#print(v1)
+#print(v2)
+#print(v3)
+#print(v4)
+#print(v5)
+#cbind(v1, v2, v3, v4, v5)
