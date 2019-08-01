@@ -1,9 +1,15 @@
 #Lab 2
+#Sys.setlocale(locale = "Thai")
+#when readline can get input in thai language
+
+
 #1. Write an R program to take input from the user (name and age) and
 # display the values and their types. 
 name <- readline(prompt = "Enter name: ")
-#as.integer() make sure input will be integer
 age <- as.integer(readline(prompt = "Enter age: "))
+# class(age) , typeof(age)
+#class(n) show tpye of variable
+#as.integer() make sure input will be integer
 #age_numberic <- as.numeric(age)
 print(paste("Your name is :", name))
 print(paste("youe age is : ", age))
@@ -89,7 +95,7 @@ print(matrix_3_3)
 # 8. Write an R program to create a vector of random numbers in normal
 # distribution and count occurrences of each value.
 vector_normal_dis <- c(rnorm(50, mean = 5, sd = 2))
-# vector_normal_dis <- c(sample(1:20, 50, replace = T))
+# vector_normal_dis <- c(sample(1:25, 50, replace = T))
 count = list()
 temp_vect_nor = list()
 index = 0
@@ -117,6 +123,9 @@ for (i in vector_normal_dis) {
   }
   isRepeate = F
 }
+#table() for count 
+count_re <- table(vector_normal_dis)
+summary_repeate <- cbind(unlist(temp_vect_nor), unlist(count))
 print(vector_normal_dis)
 
 # 9. Write an R program to read the .csv file and display the content.
