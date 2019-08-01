@@ -2,8 +2,9 @@
 #1. Write an R program to take input from the user (name and age) and
 # display the values and their types. 
 name <- readline(prompt = "Enter name: ")
+#as.integer() make sure input will be integer
 age <- as.integer(readline(prompt = "Enter age: "))
-
+#age_numberic <- as.numeric(age)
 print(paste("Your name is :", name))
 print(paste("youe age is : ", age))
 
@@ -28,6 +29,8 @@ sum_51to90 <- sum(seq_num_51_91)
 # 3. Write an R program to create a vector which contains 100 random
 # integer values between -5 and 5
 ran_5to5 <- c(runif(100, min = -5, max = 5))
+#or
+# ran_5to5 <- c(sample(-5:5, 100, replace = T))
 
 # 4. Write an R program to get the first 9 Fibonacci numbers and put them
 # into the vector,then put them into the matrix.
@@ -60,6 +63,8 @@ for (i in 44:100) {
     print(paste("i = ", i, " Fizz"))
   } else if (i %% 3 == 0) {
     print(paste("i = ", i, " Buzz"))
+  } else {
+    print(i)
   }
 }
 
