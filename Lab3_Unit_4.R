@@ -86,8 +86,6 @@ print(importance(output.forest, type = 2))
 
 titanic_train <- read.csv("C://cygwin64//home//AphiratNimanussonkul//data-analysis/titanic_train.csv")
 titanic_test <- read.csv("C://cygwin64//home//AphiratNimanussonkul//data-analysis/titanic_test.csv")
-<<<<<<< HEAD
-=======
 
 #as.factor ใช้แปลงค่า int จาก คอลัม survied ให้เป็นตัวแปร factor tree ต้องใช้ ตัวแปรแบบ factor เท่าน้น
 titanic_train$Survived <- as.factor(titanic_train$Survived)
@@ -98,7 +96,6 @@ p <- predict(rf, newdata = titanic_test)
 mean(p == titanic_test$Survived)
 plot(rf)
 plot(margin(rf, titanic_test$Survived))
->>>>>>> 57f416ad62f64a20635d607a09e4778049294b10
 
 #as.factor ใช้แปลงค่า int จาก คอลัม survied ให้เป็นตัวแปร factor tree ต้องใช้ ตัวแปรแบบ factor เท่าน้น
 titanic_train$Survived <- as.factor(titanic_train$Survived)
