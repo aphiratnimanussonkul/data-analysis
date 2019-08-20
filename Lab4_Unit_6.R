@@ -1,34 +1,33 @@
 #Clustering Lab 4 Unit 6
 #K-Means Clustering
-iris2 <- iris
+iris2 <- iris #สร้างตัวแปร iris2 จาก iris (ต้นฉบับ)
 #delete col species out because we have to clustering species of iris
-iris2$Species <- NULL
-(kmeans.result <- kmeans(iris2, 3))
+iris2$Species <- NULL #ลบข้อมูลใน col species เพื่อจะใช้ทดลองการจัดกลุ่ม
+(kmeans.result <- kmeans(iris2, 3)) #ทำการจัดกลุ่มโดยใช้ kmeans (ชุดข้อมูล, จำนวน K กลุ่ม)
 
-#ตรวจสอบว่า สามารถแยก species ได้ถูกต้องมากน้อยเพียงใด
+##ตรวจสอบว่า สามารถแยก species ได้ถูกต้องมากน้อยเพียงใด
 table(iris$Species, kmeans.result$cluster)
 
-plot(iris2[c("Sepal.Length", "Sepal.Width")], col = kmeans.result$cluster)
+plot(iris2[c("Sepal.Length", "Sepal.Width")], col = kmeans.result$cluster) #plot แสดงผลการจัดกลุ่ม โดยใช้สีแสดงกลุ่มข้อมูล
 #plot x center pointer of data set
-points(kmeans.result$centers[, c("Sepal.Length", "Sepal.Width")], col = 1:3, pch = 8, cex = 2)
+points(kmeans.result$centers[, c("Sepal.Length", "Sepal.Width")], col = 1:3, pch = 8, cex = 2) #plot ค่ากึ่งกลางของกลุ่มข้อมูล
 
 
 #K-Medoids Clustering
 library(fpc)
-pamk.result <- pamk(iris2)
+pamk.result <- pamk(iris2) #จัดกลุ่มข้อมูลโดยใช้ algorithms pamk
 pamk.result$nc #show number of clusters
 table(pamk.result$pamobject$clustering, iris$Species) #check clustering againts actual species
 
 layout(matrix(c(1,2), 1, 2)) #2 graphs per page
 
-plot(pamk.result$pamobject)
+plot(pamk.result$pamobject) #plot ผลลัพธ์การจัดกลุ่มด้วย pamk
 
 layout(matrix(1)) #check back to one graph per page
-
 #Hierarchical Clustering
-idx <- sample(1:dim(iris)[1], 40)
-irisSample <- iris[idx,]
-irisSample$Species <- NULL
+idx <- sample(1:dim(iris)[1], 40) #สุ่มตัวเลข 1 - จำนวนข้อมูลของ iris (1-150) จำนวน 40 ค่า
+irisSample <- iris[idx,] #เอาค่าจากตัวแปร iris มา ตามค่า index ที่สุ่มมาข้างต้น
+irisSample$Species <- NULL #set ค่าใน col species ให้ว่างเพื่อทำการจัดกลุ่ม
 hc <- hclust(dist(irisSample), method = "ave")
 plot(hc, hang = -1, labels = iris$Species[idx])
 #cut tree into 3 clusters
