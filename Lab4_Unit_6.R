@@ -66,3 +66,13 @@ points(newData[c(1,4)], pch = "ast", col = 1 + myPred, cex =3)
 
 #check cluster lables
 table(myPred, iris$Species[idx])
+
+
+library(fpc)
+library(factoextra)
+data("multishapes", package = "factoextra")
+# retrieve all data point from columns x and y
+df <- multishapes[, 1:2]
+# radius 0.15 unit, minimum neighbor point = 5
+db <- fpc::dbscan(df, eps = 0.15, MinPts = 5) 
+plot(db, df, frame = FALSE)
