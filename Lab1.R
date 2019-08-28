@@ -1,8 +1,8 @@
-v1<-1:5
-v2<-c(3,6,1,2,9)
-v3<-seq(from=1, to=5, by=1)
+v1<-1:5 # 1 2 3 4 5 type int
+v2<-c(3,6,1,2,9) #vector type numeric
+v3<-seq(from=1, to=5, by=1) #type numeric
 v4<-c(0,0,0,0,0)
-v5<-seq(from=0, to=0, length.out = 5)
+v5<-seq(from=0, to=0, length.out = 5) #create 0 0 0 0 0 
 #print(v1)
 #print(v2)
 #print(v3)
@@ -13,20 +13,29 @@ v5<-seq(from=0, to=0, length.out = 5)
 #Column 
 # | | | | |
 # | | | | |
-cbind(v1, v2, v3, v4, v5)
+cbindMatrix <- cbind(v1, v2, v3, v4, v5)
 
 #Row
 #- - - - 
 #- - - -
 #rbind(v1, v2, v3, v4, v5)
-v <- seq(from = 1, to = 20, by = 1)
-m1 <- matrix(v, nrow = 4, ncol = 5)
+v <- seq(from = 1, to = 20, by = 1) #1 2 3  4 5 ... 20
+
+m1 <- matrix(v, nrow = 4, ncol = 5) #matrix 4 * 5
+# | | | | |
+# | | | | |
 print(m1)
+
 m2 <- matrix(v, nrow = 4, ncol = 5, byrow = TRUE)
+#- - - - 
+#- - - -
 print(m2)
+
 colnames(m2) <- c("Col1","Col2","Col3","Col4","Col5")
 rownames(m2) <- c("Row1", "Row2", "Row3", "Row4")
+
 v[3]
+
 m2[, "Col2"]
 m2["Row4" ,]
 m2["Row4", "Col2"]
